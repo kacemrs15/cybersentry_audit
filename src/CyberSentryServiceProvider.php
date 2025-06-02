@@ -12,7 +12,7 @@ class CyberSentryServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/cybersentry.php', 'cybersentry');
+        $this->mergeConfigFrom(__DIR__ . '/config/cybersentry.php', 'cybersentry');
 
         $this->app->singleton(CveApiService::class, function ($app) {
             return new CveApiService(
@@ -29,7 +29,7 @@ class CyberSentryServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/cybersentry.php' => config_path('cybersentry.php'),
+                __DIR__ . '/../config/cybersentry.php' => config_path('cybersentry.php'),
             ], 'cybersentry-config');
 
             $this->commands([
